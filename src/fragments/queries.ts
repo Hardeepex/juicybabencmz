@@ -235,6 +235,27 @@ export const QUERY_MUTATION_UPDATE_COMMENT_BY_ID = gql(/* GraphQL */ `
 `);
 
 //
+export const GET_PROFESSIONALS = gql`
+  query GetProfessionals {
+    professionals {
+      nodes {
+        title
+        uri
+        link
+        content
+        categories {
+          nodes {
+            name
+            slug
+            taxonomyName
+            uri
+          }
+        }
+        slug
+      }
+    }
+  }
+`;
 export const QUERY_GET_TOP_10_CATEGORIES = gql(/* GraphQL */ `
   query QueryGet10Categories($first: Int = 10) {
     categories(first: $first, where: { orderby: COUNT, order: DESC }) {
