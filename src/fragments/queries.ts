@@ -211,6 +211,28 @@ export const QUERY_MUTATION_CREATE_COMMENT = gql(/* GraphQL */ `
   }
 `);
 
+export const GET_PROFESSIONALS = gql`
+  query GetProfessionals {
+    professionals {
+      nodes {
+        title
+        uri
+        link
+        content
+        categories {
+          nodes {
+            name
+            slug
+            taxonomyName
+            uri
+          }
+        }
+        slug
+      }
+    }
+  }
+`;
+
 export const QUERY_MUTATION_DELETE_COMMENT_BY_ID = gql(/* GraphQL */ `
   mutation MutationDeleteCommentById($id: ID = "") {
     deleteComment(input: { id: $id }) {
