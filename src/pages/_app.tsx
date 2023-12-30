@@ -23,7 +23,7 @@ export default function MyApp({ Component, pageProps }: AppProps) {
   const router = useRouter();
 
   return (
-    <FaustProvider pageProps={pageProps}>
+    <FaustProvider pageProps={pageProps} Component={Component}>
       <WordPressBlocksProvider
         config={{
           blocks,
