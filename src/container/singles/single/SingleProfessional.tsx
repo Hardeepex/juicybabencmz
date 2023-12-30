@@ -11,13 +11,19 @@ export interface SingleProfessionalProps {
 }
 
 const SingleProfessional: FC<SingleProfessionalProps> = ({ professional, showRightSidebar }) => {
-  const { title, content, date, author, databaseId, excerpt, featuredImage } =
-    getPostDataFromPostFragment(professional || {});
+  let postData;
+  try {
+    postData = getPostDataFromPostFragment(professional || {});
+  } catch (error) {
+    throw new Error("Failed to fetch professional data: " + error.message);
+  }
+  const { title, content, date, author, databaseId, excerpt, featuredImage } = postData;
   const hasFeaturedImage = !!featuredImage?.sourceUrl;
 
-  return (
-    <>
-      <div className={`nc-PageSingle pt-8 lg:pt-16`}>
+  try {
+    return (
+      <>
+        <div className={`nc-PageSingle pt-8 lg:pt-16`}>
         <header className="container rounded-xl">
           <div
             className={
@@ -47,7 +53,10 @@ const SingleProfessional: FC<SingleProfessionalProps> = ({ professional, showRig
         )}
       </div>
     </>
-  );
+     );
+  } catch (error) {
+    throw new Error("Failed to render professional details: " + error.message);
+  }
 };
 
 export default SingleProfessional;
