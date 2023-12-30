@@ -22,7 +22,7 @@ const Component: FaustTemplate<GetProfessionalPageQuery> = (props) => {
       footerMenuItems={footerMenuItems}
       generalSettings={generalSettings}
     >
-      <SingleProfessional professional={professional} />
+      {professional ? <SingleProfessional professional={professional} /> : <div>Error: Professional data could not be loaded.</div>}
     </PageLayout>
   );
 };
@@ -36,6 +36,6 @@ Component.variables = ({ databaseId }, ctx) => {
   };
 };
 
-Component.query = gql(GET_PROFESSIONALS);
+Component.query = gql`${GET_PROFESSIONALS}`;
 
 export default Component;
