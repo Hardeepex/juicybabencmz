@@ -8,17 +8,17 @@ export default function Page404Content() {
   return (
     <div className="">
       <SEO
-        title={"This page does not exist (404)"}
-        description={"Sorry, we couldn’t find the page you’re looking for."}
+        title={"This page could not be found."}
+        description={"Unfortunately, the page you were looking for does not exist or has been moved."}
       />
 
       <main className="mx-auto w-full max-w-7xl px-6 pb-16 pt-5 sm:pb-20 lg:px-8">
         <div className="max-w-2xl text-center mx-auto">
           <Image
             src={"/images/404.webp"}
-            width={750}
-            height={500}
-            alt="404"
+            layout="fill"
+            objectFit="contain"
+            alt="404 Page Not Found"
             className="w-auto mx-auto"
           />
         </div>
@@ -30,14 +30,13 @@ export default function Page404Content() {
             Sorry, we couldn’t find the page you’re looking for.
           </p>
           <div className="mt-10 flex justify-center">
-            <Link
-              href="/"
-              className="text-sm font-semibold leading-7 text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-500"
-            >
-              <span className="me-2 rtl:rotate-180" aria-hidden="true">
-                &larr;
-              </span>
-              Back to home
+            <Link href="/">
+              <a className="text-sm font-semibold leading-7 text-primary-500 hover:text-primary-600 dark:text-primary-400 dark:hover:text-primary-500">
+                <span className="me-2 rtl:rotate-180" aria-hidden="true">
+                  &larr;
+                </span>
+                Back to home
+              </a>
             </Link>
           </div>
         </div>
